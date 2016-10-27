@@ -91,7 +91,7 @@ class MailboxViewController: UIViewController {
                 laterImageView.image = UIImage(named: "later_icon")
                 laterImageView.frame.origin.x = laterImageViewOriginalX + (translation.x + 60)
                 
-            // brown, list
+            // brown, list icon
             } else if messageImageView.frame.origin.x < 0 && messageImageView.frame.origin.x > -375 {
                 
                 archiveImageView.alpha = 0
@@ -141,68 +141,89 @@ class MailboxViewController: UIViewController {
             // user chooses yellow, later icon
             }  else if messageImageView.frame.origin.x < 0 && messageImageView.frame.origin.x > -260 {
                 
-                // animate the message out, then return
+                // animate the message to the side
                 UIView.animate(withDuration: 0.2, animations: {
-                    self.messageImageView.frame.origin.x -= 300
-                    self.laterImageView.frame.origin.x -= 300
-                    }, completion: {(Bool) in
-                        UIView.animate(withDuration: 0.2, delay:0.3, animations: {
-                            self.messageImageView.frame.origin.x = self.messageOriginalX
-                            self.laterImageView.frame.origin.x = self.laterImageViewOriginalX
-                        })
-                        
+                    self.messageImageView.frame.origin.x = -(self.messageImageView.frame.width * 0.7)
+                    self.laterImageView.frame.origin.x = ((self.laterImageViewOriginalX + 60) - (self.messageImageView.frame.width * 0.7))
+                        print ("message x: \(self.messageImageView.frame.origin.x)")
                 })
                 
-                // delay, then animate the reschedule image in. On completion, bring the message back to position
+                
+                // delay, then animate the Reschedule image in
                 UIView.animate(withDuration: 0.3, delay: 0.2, animations: {
                     self.rescheduleImageView.alpha = 1
-                    }, completion: { (Bool) in
-                        self.messageImageView.frame.origin.x = self.messageOriginalX
-                })
+                    })
                 
             // user chooses brown, list icon
             } else if messageImageView.frame.origin.x < 0 && messageImageView.frame.origin.x > -375 {
                 
-                // animate the message out
+                // animate the message to the side
                 UIView.animate(withDuration: 0.2, animations: {
-                    self.messageImageView.frame.origin.x -= 200
-                    self.laterImageView.frame.origin.x -= 200
-                    }, completion: {(Bool) in
-                        UIView.animate(withDuration: 0.2, delay:0.3, animations: {
-                            self.messageImageView.frame.origin.x = self.messageOriginalX
-                            self.laterImageView.frame.origin.x = self.laterImageViewOriginalX
-                        })
-                        
-                })
+                    self.messageImageView.frame.origin.x = -(self.messageImageView.frame.width * 0.8)
+                    self.laterImageView.frame.origin.x = ((self.laterImageViewOriginalX + 60) - (self.messageImageView.frame.width * 0.8))
+                    })
                 
-                // delay, then animate the list image in. On completion, bring the message back to position
+                // delay, then animate the List image in
                 UIView.animate(withDuration: 0.3, delay: 0.2, animations: {
                     self.listImageView.alpha = 1
-                    }, completion: { (Bool) in
-                        self.messageImageView.frame.origin.x = self.messageOriginalX
-                })
+                    })
                 
                 
             // user chooses green, archive icon
             }  else if messageImageView.frame.origin.x > 0 && messageImageView.frame.origin.x < 260 {
                 
-                print ("Archive: Keep the empty space green Make the message fly off to the right. Make all the other messages move up to close the gap.")
+                // animate the message out
+                UIView.animate(withDuration: 0.2, animations: {
+                    self.messageImageView.frame.origin.x = self.messageOriginalX + self.messageImageView.frame.width
+                    self.archiveImageView.frame.origin.x = ((self.archiveImageViewOriginalX - 60) + self.messageImageView.frame.width)
+                })
+                
+                // move the feed up to close the gap
+                UIView.animate(withDuration: 0.6, delay: 0.4, usingSpringWithDamping: 0.6, initialSpringVelocity: 1, options: [], animations: {
+                    self.feedImageView.frame.origin.y -= self.messageImageView.frame.height
+                    })
+                
             
             // user chooses red, x delete icon
             }  else if messageImageView.frame.origin.x > 0 && messageImageView.frame.origin.x < 375 {
-                print ("Delete: Keep the empty space red. Make the message fly off to the right. Make all the other messages move up to close the gap.")
+                
+                // animate the message out
+                UIView.animate(withDuration: 0.2, animations: { 
+                    self.messageImageView.frame.origin.x = self.messageOriginalX + self.messageImageView.frame.width
+                    self.archiveImageView.frame.origin.x = ((self.archiveImageViewOriginalX - 60) + self.messageImageView.frame.width)
+                })
+                
+                // move the feed up to close the gap
+                UIView.animate(withDuration: 0.6, delay: 0.4, usingSpringWithDamping: 0.6, initialSpringVelocity: 1, options: [], animations: { 
+                    self.feedImageView.frame.origin.y -= self.messageImageView.frame.height
+                    })
+                
             }
             
         }
         
     }
     
+    // dismiss Reschedule view
     @IBAction func didTapReschedule(_ sender: UITapGestureRecognizer) {
         
+        // Fade out the Reschedule view
         UIView.animate(withDuration: 0.3, animations: { 
             self.rescheduleImageView.alpha = 0
             }) { (Bool) in
-                // finish the hide animation
+                // and then complete the message slide-out animation
+                UIView.animate(withDuration: 0.2, animations: { 
+                    self.messageImageView.frame.origin.x -= self.messageImageView.frame.width * 0.3
+                    self.laterImageView.frame.origin.x -= self.messageImageView.frame.width * 0.3
+                })
+                
+        }
+        
+        // move up the feed to close the gap
+        UIView.animate(withDuration: 0.5, delay: 0.6, usingSpringWithDamping: 0.6, initialSpringVelocity: 1, options: [], animations: {
+            self.feedImageView.frame.origin.y -= self.messageImageView.frame.height
+            }) { (Bool) in
+                
         }
     // end didTapReschedule
     }
@@ -210,11 +231,25 @@ class MailboxViewController: UIViewController {
     
     @IBAction func didTapListImage(_ sender: UITapGestureRecognizer) {
         
+        // fade out the List view, and then complete the message slide-out animation
         UIView.animate(withDuration: 0.3, animations: {
             self.listImageView.alpha = 0
         }) { (Bool) in
-            // finish the hide animation
+            // and then complete the message slide-out animation
+            UIView.animate(withDuration: 0.2, animations: {
+                self.messageImageView.frame.origin.x -= self.messageImageView.frame.width * 0.2
+                self.laterImageView.frame.origin.x -= self.messageImageView.frame.width * 0.2
+            })
+            
         }
-    // end didTapListImage
+        
+        // move up the feed to close the gap
+        UIView.animate(withDuration: 0.5, delay: 0.6, usingSpringWithDamping: 0.6, initialSpringVelocity: 1, options: [], animations: {
+            self.feedImageView.frame.origin.y -= self.messageImageView.frame.height
+        }) { (Bool) in
+            
+        }
+        // end didTapReschedule
     }
+    
 }
