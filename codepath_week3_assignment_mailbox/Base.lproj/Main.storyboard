@@ -27,11 +27,11 @@
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <subviews>
                                             <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" misplaced="YES" image="archive_icon" id="Fyr-Xj-Sbg">
-                                                <frame key="frameInset" minX="39" minY="41" width="25" height="25"/>
+                                                <frame key="frameInset" minX="10" minY="41" width="25" height="25"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                             </imageView>
                                             <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" misplaced="YES" image="later_icon" id="HaX-OG-0vK">
-                                                <frame key="frameInset" minX="314" minY="39" width="25" height="25"/>
+                                                <frame key="frameInset" minX="340" minY="39" width="25" height="25"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                             </imageView>
                                             <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" misplaced="YES" image="message" id="DAU-dN-cjF">
@@ -54,12 +54,20 @@
                                         <autoresizingMask key="autoresizingMask"/>
                                     </imageView>
                                     <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" misplaced="YES" image="reschedule" id="SMw-Yr-yFD">
-                                        <rect key="frame" x="0.0" y="221" width="375" height="664"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="664"/>
                                         <autoresizingMask key="autoresizingMask"/>
+                                        <gestureRecognizers/>
+                                        <connections>
+                                            <outletCollection property="gestureRecognizers" destination="bhx-ar-XyO" appends="YES" id="piZ-P3-NKE"/>
+                                        </connections>
                                     </imageView>
                                     <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" misplaced="YES" image="list" id="jy5-8P-Vj4">
-                                        <rect key="frame" x="0.0" y="221" width="375" height="669"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="669"/>
                                         <autoresizingMask key="autoresizingMask"/>
+                                        <gestureRecognizers/>
+                                        <connections>
+                                            <outletCollection property="gestureRecognizers" destination="5RC-nX-kn3" appends="YES" id="l6V-l9-eps"/>
+                                        </connections>
                                     </imageView>
                                 </subviews>
                             </scrollView>
@@ -69,6 +77,7 @@
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="375" height="1634"/>
                     <connections>
+                        <outlet property="archiveImageView" destination="Fyr-Xj-Sbg" id="wgQ-eG-kRx"/>
                         <outlet property="feedImageView" destination="68X-rN-Wv3" id="MiV-yv-QuC"/>
                         <outlet property="feedScrollView" destination="epW-7H-XVd" id="NYI-Nf-E71"/>
                         <outlet property="laterImageView" destination="HaX-OG-0vK" id="whl-Z7-C3r"/>
@@ -84,6 +93,16 @@
                         <action selector="didPanMessage:" destination="BYZ-38-t0r" id="dZZ-AX-Dhn"/>
                     </connections>
                 </panGestureRecognizer>
+                <tapGestureRecognizer id="bhx-ar-XyO" userLabel="Resechdedule Tap Gesture Recognizer">
+                    <connections>
+                        <action selector="didTapReschedule:" destination="BYZ-38-t0r" id="0da-GX-33a"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="5RC-nX-kn3" userLabel="List Tap Gesture Recognizer">
+                    <connections>
+                        <action selector="didTapListImage:" destination="BYZ-38-t0r" id="JBW-gc-YJX"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="22.5" y="41"/>
         </scene>
