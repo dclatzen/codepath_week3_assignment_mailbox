@@ -71,6 +71,7 @@
                     <connections>
                         <outlet property="feedImageView" destination="68X-rN-Wv3" id="MiV-yv-QuC"/>
                         <outlet property="feedScrollView" destination="epW-7H-XVd" id="NYI-Nf-E71"/>
+                        <outlet property="laterImageView" destination="HaX-OG-0vK" id="whl-Z7-C3r"/>
                         <outlet property="listImageView" destination="jy5-8P-Vj4" id="xTS-Vn-cBD"/>
                         <outlet property="messageImageView" destination="DAU-dN-cjF" id="8AW-s1-4PP"/>
                         <outlet property="messageParentView" destination="Fkm-ZM-TmD" id="2UT-cO-xlF"/>
