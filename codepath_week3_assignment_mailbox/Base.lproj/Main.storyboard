@@ -73,6 +73,7 @@
                         <outlet property="feedScrollView" destination="epW-7H-XVd" id="NYI-Nf-E71"/>
                         <outlet property="listImageView" destination="jy5-8P-Vj4" id="xTS-Vn-cBD"/>
                         <outlet property="messageImageView" destination="DAU-dN-cjF" id="8AW-s1-4PP"/>
+                        <outlet property="messageParentView" destination="Fkm-ZM-TmD" id="2UT-cO-xlF"/>
                         <outlet property="rescheduleImageView" destination="SMw-Yr-yFD" id="Nhe-Ez-poz"/>
                     </connections>
                 </viewController>

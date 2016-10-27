@@ -15,6 +15,7 @@ class MailboxViewController: UIViewController {
     @IBOutlet weak var rescheduleImageView: UIImageView!
     @IBOutlet weak var listImageView: UIImageView!
     @IBOutlet weak var messageImageView: UIImageView!
+    @IBOutlet weak var messageParentView: UIView!
     
     var messageOriginalX: CGFloat!
     
@@ -42,13 +43,36 @@ class MailboxViewController: UIViewController {
         } else if sender.state == .changed {
             messageImageView.frame.origin.x = CGFloat(messageOriginalX + translation.x)
             
+            // default grey
+            if messageImageView.frame.origin.x < 50 && messageImageView.frame.origin.x > -50 {
+                
+                UIView.animate(withDuration: 0.2, animations: {
+                    self.messageParentView.backgroundColor = UIColor.lightGray
+                })
+            
+            // green check mark
+            } else if messageImageView.frame.origin.x > 0 && messageImageView.frame.origin.x < 100 {
+                
+                UIView.animate(withDuration: 0.2, animations: {
+                    self.messageParentView.backgroundColor = UIColor.green
+                })
+            
+            // yellow "later" action
+            } else if messageImageView.frame.origin.x < 0 && messageImageView.frame.origin.x < -100 {
+                
+                UIView.animate(withDuration: 0.2, animations: { 
+                    self.messageParentView.backgroundColor = UIColor.yellow
+                })
+                
+            }
+            
             
         } else if sender.state == .ended {
             
             UIView.animate(withDuration: 0.3, delay: 0, usingSpringWithDamping: 0.7, initialSpringVelocity: 1, options: [], animations: {
                 self.messageImageView.frame.origin.x = self.messageOriginalX
+                self.messageParentView.backgroundColor = UIColor.lightGray
                 }, completion: { (Bool) in
-                    
             })
             
         }
