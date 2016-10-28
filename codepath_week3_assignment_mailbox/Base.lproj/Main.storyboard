@@ -15,59 +15,56 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" misplaced="YES" image="menu" id="3g1-CA-R98">
-                                <frame key="frameInset" width="375" height="679"/>
+                                <frame key="frameInset" minY="-2" width="375" height="667"/>
                                 <autoresizingMask key="autoresizingMask"/>
                             </imageView>
-                            <view contentMode="scaleToFill" misplaced="YES" id="IkF-yC-UmY" userLabel="Menu Hider View">
-                                <frame key="frameInset" minY="-2" width="375" height="1499"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="epW-7H-XVd">
+                                <frame key="frameInset" minY="-411" maxY="-411"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <subviews>
-                                    <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" id="epW-7H-XVd">
-                                        <frame key="frameInset" maxY="-950"/>
-                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" misplaced="YES" image="search" id="idA-5k-kM6">
+                                        <rect key="frame" x="0.0" y="481" width="375" height="60"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                    </imageView>
+                                    <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" misplaced="YES" image="help_label" id="zzi-qb-ung">
+                                        <rect key="frame" x="0.0" y="533" width="375" height="47"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                    </imageView>
+                                    <view contentMode="scaleToFill" misplaced="YES" id="Fkm-ZM-TmD" userLabel="Message Parent View">
+                                        <rect key="frame" x="0.0" y="578" width="375" height="101"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <subviews>
-                                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" image="search" id="idA-5k-kM6">
-                                                <rect key="frame" x="0.0" y="-5" width="375" height="60"/>
+                                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="archive_icon" id="Fyr-Xj-Sbg">
+                                                <frame key="frameInset" minX="10" minY="41" width="25" height="25"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                             </imageView>
-                                            <view contentMode="scaleToFill" id="Fkm-ZM-TmD" userLabel="Message Parent View">
-                                                <rect key="frame" x="0.0" y="704" width="375" height="101"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <subviews>
-                                                    <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="archive_icon" id="Fyr-Xj-Sbg">
-                                                        <frame key="frameInset" minX="10" minY="41" width="25" height="25"/>
-                                                        <autoresizingMask key="autoresizingMask"/>
-                                                    </imageView>
-                                                    <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="later_icon" id="HaX-OG-0vK">
-                                                        <frame key="frameInset" minX="340" minY="39" width="25" height="25"/>
-                                                        <autoresizingMask key="autoresizingMask"/>
-                                                    </imageView>
-                                                    <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" image="message" id="DAU-dN-cjF">
-                                                        <frame key="frameInset" minY="-2" width="375" height="105"/>
-                                                        <autoresizingMask key="autoresizingMask"/>
-                                                        <gestureRecognizers/>
-                                                        <connections>
-                                                            <outletCollection property="gestureRecognizers" destination="RyC-V3-15p" appends="YES" id="hJa-lG-yzi"/>
-                                                        </connections>
-                                                    </imageView>
-                                                </subviews>
-                                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                            </view>
-                                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" image="help_label" id="zzi-qb-ung">
-                                                <rect key="frame" x="0.0" y="1451" width="375" height="47"/>
+                                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="later_icon" id="HaX-OG-0vK">
+                                                <frame key="frameInset" minX="340" minY="39" width="25" height="25"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                             </imageView>
-                                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" image="feed" id="68X-rN-Wv3">
-                                                <rect key="frame" x="0.0" y="41" width="375" height="1416"/>
+                                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" image="message" id="DAU-dN-cjF">
+                                                <frame key="frameInset" minY="-2" width="375" height="105"/>
                                                 <autoresizingMask key="autoresizingMask"/>
+                                                <gestureRecognizers/>
+                                                <connections>
+                                                    <outletCollection property="gestureRecognizers" destination="RyC-V3-15p" appends="YES" id="hJa-lG-yzi"/>
+                                                </connections>
                                             </imageView>
                                         </subviews>
-                                    </scrollView>
+                                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                    </view>
+                                    <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" misplaced="YES" image="feed" id="68X-rN-Wv3">
+                                        <rect key="frame" x="0.0" y="675" width="375" height="1416"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                    </imageView>
+                                    <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" misplaced="YES" image="nav" id="lhF-m5-p7d">
+                                        <rect key="frame" x="0.0" y="407" width="375" height="84"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                    </imageView>
                                 </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            </view>
+                            </scrollView>
                             <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" misplaced="YES" image="reschedule" id="SMw-Yr-yFD">
-                                <frame key="frameInset" minY="1" width="375" height="664"/>
+                                <frame key="frameInset" minY="176" width="375" height="664"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <gestureRecognizers/>
                                 <connections>
@@ -75,7 +72,7 @@
                                 </connections>
                             </imageView>
                             <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" misplaced="YES" image="list" id="jy5-8P-Vj4">
-                                <frame key="frameInset" minY="-2" width="375" height="669"/>
+                                <frame key="frameInset" minY="173" width="375" height="669"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <gestureRecognizers/>
                                 <connections>
@@ -93,7 +90,7 @@
                         <outlet property="feedScrollView" destination="epW-7H-XVd" id="NYI-Nf-E71"/>
                         <outlet property="laterImageView" destination="HaX-OG-0vK" id="whl-Z7-C3r"/>
                         <outlet property="listImageView" destination="jy5-8P-Vj4" id="xTS-Vn-cBD"/>
-                        <outlet property="menuHiderView" destination="IkF-yC-UmY" id="ICG-NP-u5c"/>
+                        <outlet property="menuImageView" destination="3g1-CA-R98" id="ZDT-gh-JDD"/>
                         <outlet property="messageImageView" destination="DAU-dN-cjF" id="8AW-s1-4PP"/>
                         <outlet property="messageParentView" destination="Fkm-ZM-TmD" id="2UT-cO-xlF"/>
                         <outlet property="rescheduleImageView" destination="SMw-Yr-yFD" id="Nhe-Ez-poz"/>
@@ -127,6 +124,7 @@
         <image name="list" width="320" height="568"/>
         <image name="menu" width="320" height="568"/>
         <image name="message" width="320" height="86"/>
+        <image name="nav" width="320" height="65"/>
         <image name="reschedule" width="320" height="568"/>
         <image name="search" width="320" height="42"/>
     </resources>
