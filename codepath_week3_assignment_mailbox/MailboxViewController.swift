@@ -53,7 +53,7 @@ class MailboxViewController: UIViewController, UIGestureRecognizerDelegate {
         
         menuImageView.alpha = 0
         
-        feedScrollView.contentSize = CGSize(width: 375, height: 2435)
+        feedScrollView.contentSize = CGSize(width: 375, height: 2500)
         
         
         // Set up Screen Edge Pan Gesture Recognizer
@@ -80,10 +80,10 @@ class MailboxViewController: UIViewController, UIGestureRecognizerDelegate {
         let translation = sender.translation(in: view)
         
         // Left pan -> later_icon.alpha: map negative translation.x to a value between 0.2 and 1, for assigning to the "later" icon alpha
-        var tXLeftForAlpha = convertValue(inputValue: translation.x, r1Min: -20, r1Max: -100, r2Min: 0.2, r2Max: 1)
+        let tXLeftForAlpha = convertValue(inputValue: translation.x, r1Min: -20, r1Max: -100, r2Min: 0.2, r2Max: 1)
         
         // Right pan -> archive_icon.alpha: map positive translation.x to a value between 0.2 and 1, for assigning to the "archive" icon alpha
-        var txRightForAlpha = convertValue(inputValue: translation.x, r1Min: 20, r1Max: 100, r2Min: 0.2, r2Max: 1)
+        let txRightForAlpha = convertValue(inputValue: translation.x, r1Min: 20, r1Max: 100, r2Min: 0.2, r2Max: 1)
 
         if sender.state == .began {
             
